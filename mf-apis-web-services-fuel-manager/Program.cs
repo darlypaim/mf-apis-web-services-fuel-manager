@@ -1,7 +1,14 @@
+using mf_apis_web_services_fuel_manager.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Adiciona os controllers
+
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Registra os geradores do Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace mf_apis_web_services_fuel_manager.Models
 {
@@ -12,6 +13,7 @@ namespace mf_apis_web_services_fuel_manager.Models
         [Required]
         public DateTime Data { get; set; }
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
         [Required]
         public TipoCombustivel Tipo { get; set; }
